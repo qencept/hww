@@ -1,0 +1,41 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_HWW
+	tristate "HWW example"
+	default n
+	---help---
+		Enable the HWW example
+
+if EXAMPLES_HWW
+
+config EXAMPLES_HWW_PROGNAME
+	string "Program name"
+	default "hww"
+	---help---
+		This is the name of the program that will be used when the NSH ELF
+		program is installed.
+
+config EXAMPLES_HWW_PRIORITY
+        int "Main task priority"
+        default 200
+
+config EXAMPLES_HWW_PRIORITY_GEN
+        int "Generator task priority"
+        default 50
+
+config EXAMPLES_HWW_PRIORITY_MUL
+        int "Multiplier task priority"
+        default 100
+
+config EXAMPLES_HWW_PRIORITY_SPI
+        int "SPI task priority"
+        default 150
+
+config EXAMPLES_HWW_STACKSIZE
+        int "HWW stack size"
+        default CONFIG_DEFAULT_TASK_STACKSIZE
+
+endif
